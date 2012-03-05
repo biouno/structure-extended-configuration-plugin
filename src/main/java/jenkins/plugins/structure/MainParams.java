@@ -36,6 +36,30 @@ import org.kohsuke.stapler.DataBoundConstructor;
 public class MainParams implements Serializable {
 
 	private static final long serialVersionUID = -4370670728575641946L;
+	
+	private static final String NOTAMBIGUOUS = "NOTAMBIGUOUS";
+	private static final String MARKOVPHASE = "MARKOVPHASE";
+	private static final String PHASEINFO = "PHASEINFO";
+	private static final String PHASED = "PHASED";
+	private static final String MAPDISTANCES = "MAPDISTANCES";
+	private static final String RECESSIVEALLELES = "RECESSIVEALLELES";
+	private static final String MARKERNAMES = "MARKERNAMES";
+	private static final String EXTRACOLS = "EXTRACOLS";
+	private static final String PHENOTYPE = "PHENOTYPE";
+	private static final String LOCDATA = "LOCDATA";
+	private static final String POPFLAG = "POPFLAG";
+	private static final String POPDATA = "POPDATA";
+	private static final String LABEL = "LABEL";
+	private static final String ONEROWPERIND = "ONEROWPERIND";
+	private static final String MISSING = "MISSING";
+	private static final String PLOIDY = "PLOIDY";
+	private static final String NUMLOCI = "NUMLOCI";
+	private static final String NUMINDS = "NUMINDS";
+	private static final String OUTFILE = "OUTFILE";
+	private static final String INFILE = "INFILE";
+	private static final String NUMREPS = "NUMREPS";
+	private static final String BURNIN = "BURNIN";
+	private static final String MAXPOPS = "MAXPOPS";
 
 	// Basic Program Parameters
 	private final Long maxPops; // (int) number of populations assumed
@@ -94,13 +118,29 @@ public class MainParams implements Serializable {
 	 * @param notAmbiguous
 	 */
 	@DataBoundConstructor
-	public MainParams(Long maxPops, Long burnIn, Long numReps, String inFile,
-			String outFile, Long numInds, Long numLoci, Integer ploidy,
-			Integer missing, Boolean oneRowPerInd, Boolean label,
-			Boolean popData, Boolean popFlag, Boolean locData,
-			Boolean phenotype, Integer extraCols, Boolean markerNames,
-			Boolean recessiveAlleles, Boolean mapDistances, Boolean phased,
-			Boolean phaseInfo, Boolean markovPhase, Integer notAmbiguous) {
+	public MainParams(Long maxPops, 
+			Long burnIn,
+			Long numReps, 
+			String inFile,
+			String outFile, 
+			Long numInds, 
+			Long numLoci, 
+			Integer ploidy,
+			Integer missing, 
+			Boolean oneRowPerInd, 
+			Boolean label,
+			Boolean popData, 
+			Boolean popFlag, 
+			Boolean locData,
+			Boolean phenotype, 
+			Integer extraCols, 
+			Boolean markerNames,
+			Boolean recessiveAlleles, 
+			Boolean mapDistances, 
+			Boolean phased,
+			Boolean phaseInfo, 
+			Boolean markovPhase, 
+			Integer notAmbiguous) {
 		super();
 		this.maxPops = maxPops;
 		this.burnIn = burnIn;
@@ -286,6 +326,38 @@ public class MainParams implements Serializable {
 	 */
 	public Integer getNotAmbiguous() {
 		return notAmbiguous;
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		Util.addOption(sb, MAXPOPS, this.getMaxPops());
+		Util.addOption(sb, BURNIN, this.getBurnIn());
+		Util.addOption(sb, NUMREPS, this.getNumReps());
+		Util.addOption(sb, INFILE, this.getInFile());
+		Util.addOption(sb, OUTFILE, this.getOutFile());
+		Util.addOption(sb, NUMINDS, this.getNumInds());
+		Util.addOption(sb, NUMLOCI, this.getNumLoci());
+		Util.addOption(sb, PLOIDY, this.getPloidy());
+		Util.addOption(sb, MISSING, this.getMissing());
+		Util.addOption(sb, ONEROWPERIND, this.getOneRowPerInd());
+		Util.addOption(sb, LABEL, this.getLabel());
+		Util.addOption(sb, POPDATA, this.getPopData());
+		Util.addOption(sb, POPFLAG, this.getPopFlag());
+		Util.addOption(sb, LOCDATA, this.getLocData());
+		Util.addOption(sb, PHENOTYPE, this.getPhenotype());
+		Util.addOption(sb, EXTRACOLS, this.getExtraCols());
+		Util.addOption(sb, MARKERNAMES, this.getMarkerNames());
+		Util.addOption(sb, RECESSIVEALLELES, this.getRecessiveAlleles());
+		Util.addOption(sb, MAPDISTANCES, this.getMapDistances());
+		Util.addOption(sb, PHASED, this.getPhased());
+		Util.addOption(sb, PHASEINFO, this.getPhaseInfo());
+		Util.addOption(sb, MARKOVPHASE, this.getMarkovPhase());
+		Util.addOption(sb, NOTAMBIGUOUS, this.getNotAmbiguous());
+		return sb.toString();
 	}
 
 }

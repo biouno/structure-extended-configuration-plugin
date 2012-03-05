@@ -95,14 +95,216 @@
         
     </f:section>
     
-    <f:section title="${%Extra params}" name="Structure.extraParams">
-    
-    </f:section>
-    
     <f:advanced>
-        <f:section title="Extra params">
+        <f:section title="${%Extra params}" name="Structure.extraParams">
             
-        </f:section>  
+            <f:block><strong>Program options</strong></f:block>
+
+            <f:entry title="${%Use no admixture model (0=admixture model, 1=no-admix)}" help="${rootURL}/../plugin/structure/help-noAdmix.html">
+                <f:checkbox name="extraParams.noAdmix" value="${instance.extraParams.noAdmix}" checked="${instance.extraParams.noAdmix}" />
+            </f:entry>
+            
+            <f:entry title="${%Use the linkage model model}" help="${rootURL}/../plugin/structure/help-linkage.html">
+                <f:checkbox name="extraParams.linkage" value="${instance.extraParams.linkage}" checked="${instance.extraParams.linkage}" />
+            </f:entry>
+            
+            <f:entry title="${%Use prior population information to pre-assign individuals to clusters}" help="${rootURL}/../plugin/structure/help-usePopInfo.html">
+                <f:checkbox name="extraParams.usePopInfo" value="${instance.extraParams.usePopInfo}" checked="${instance.extraParams.usePopInfo}" />
+            </f:entry>
+            
+            <f:entry title="${%Use location information to improve weak data}" help="${rootURL}/../plugin/structure/help-locPrior.html">
+                <f:checkbox name="extraParams.locPrior" value="${instance.extraParams.locPrior}" checked="${instance.extraParams.locPrior}" />
+            </f:entry>
+            
+            <f:entry title="${%Allele frequencies are correlated among pops}" help="${rootURL}/../plugin/structure/help-freqsCorr.html">
+                <f:checkbox name="extraParams.freqsCorr" value="${instance.extraParams.freqsCorr}" checked="${instance.extraParams.freqsCorr}" />
+            </f:entry>
+            
+            <f:entry title="${%Assume same value of Fst for all subpopulations.}" help="${rootURL}/../plugin/structure/help-oneFst.html">
+                <f:checkbox name="extraParams.oneFst" value="${instance.extraParams.oneFst}" checked="${instance.extraParams.oneFst}" />
+            </f:entry>
+            
+            <f:entry title="${%Infer ALPHA (the admixture parameter)}" help="${rootURL}/../plugin/structure/help-inferAlpha.html">
+                <f:checkbox name="extraParams.inferAlpha" value="${instance.extraParams.inferAlpha}" checked="${instance.extraParams.inferAlpha}" />
+            </f:entry>
+            
+            <f:entry title="${%Individual alpha for each population}" help="${rootURL}/../plugin/structure/help-popAlphas.html">
+                <f:checkbox name="extraParams.popAlphas" value="${instance.extraParams.popAlphas}" checked="${instance.extraParams.popAlphas}" />
+            </f:entry>
+            
+            <f:entry title="${%Dirichlet parameter for degree of admixture (this is the initial value if INFERALPHA==1).}" help="${rootURL}/../plugin/structure/help-alpha.html">
+                <f:textbox name="extraParams.alpha" value="${instance.extraParams.alpha}" />
+            </f:entry>
+            
+            <f:entry title="${%Infer LAMBDA (the allele frequencies parameter)}" help="${rootURL}/../plugin/structure/help-inferLambda.html">
+                <f:checkbox name="extraParams.inferLambda" value="${instance.extraParams.inferLambda}" checked="${instance.extraParams.inferLambda}" />
+            </f:entry>
+            
+            <f:entry title="${%Infer a separate lambda for each pop (only if INFERLAMBDA=1).}" help="${rootURL}/../plugin/structure/help-popSpecificLambda.html">
+                <f:checkbox name="extraParams.popSpecificLambda" value="${instance.extraParams.popSpecificLambda}" checked="${instance.extraParams.popSpecificLambda}" />
+            </f:entry>
+            
+            <f:entry title="${%Dirichlet parameter for allele frequencies}" help="${rootURL}/../plugin/structure/help-lambda.html">
+                <f:textbox name="extraParams.lambda" value="${instance.extraParams.lambda}" />
+            </f:entry>
+            
+            <f:block><strong>Priors</strong></f:block>
+            
+            <f:entry title="${%Prior mean and SD of Fst for pops.}" help="${rootURL}/../plugin/structure/help-fPriorMean.html">
+                <f:textbox name="extraParams.fPriorMean" value="${instance.extraParams.fPriorMean}" />
+            </f:entry>
+            
+            <f:entry title="${%The prior is a Gamma distribution with these parameters}" help="${rootURL}/../plugin/structure/help-fPriorSd.html">
+                <f:textbox name="extraParams.fPriorSd" value="${instance.extraParams.fPriorSd}" />
+            </f:entry>
+            
+            <f:entry title="${%Use a uniform prior for alpha; otherwise gamma prior}" help="${rootURL}/../plugin/structure/help-unifPriorAlpha.html">
+                <f:checkbox name="extraParams.unifPriorAlpha" value="${instance.extraParams.unifPriorAlpha}" checked="${instance.extraParams.unifPriorAlpha}" />
+            </f:entry>
+            
+            <f:entry title="${%Max value of alpha if uniform prior}" help="${rootURL}/../plugin/structure/help-alphaMax.html">
+                <f:textbox name="extraParams.alphaMax" value="${instance.extraParams.alphaMax}" />
+            </f:entry>
+            
+            <f:entry title="${%(only if UNIFPRIORALPHA==0): alpha has a gamma prior with mean A*B, and}" help="${rootURL}/../plugin/structure/help-alphaPriorA.html">
+                <f:textbox name="extraParams.alphaPriorA" value="${instance.extraParams.alphaPriorA}" />
+            </f:entry>
+            
+            <f:entry title="${%Variance A*B^2.}" help="${rootURL}/../plugin/structure/help-alphaPriorB.html">
+                <f:textbox name="extraParams.alphaPriorB" value="${instance.extraParams.alphaPriorB}" />
+            </f:entry>
+            
+            <f:entry title="${%Log10 of minimum allowed value of r under linkage model}" help="${rootURL}/../plugin/structure/help-log10RMin.html">
+                <f:textbox name="extraParams.log10RMin" value="${instance.extraParams.log10RMin}" />
+            </f:entry>
+            
+            <f:entry title="${%Log10 of maximum allowed value of r}" help="${rootURL}/../plugin/structure/help-log10RMax.html">
+                <f:textbox name="extraParams.log10RMax" value="${instance.extraParams.log10RMax}" />
+            </f:entry>
+            
+            <f:entry title="${%Standard deviation of log r in update}" help="${rootURL}/../plugin/structure/help-log10RPropSD.html">
+                <f:textbox name="extraParams.log10RPropSD" value="${instance.extraParams.log10RPropSD}" />
+            </f:entry>
+            
+            <f:entry title="${%Initial value of log10 r}" help="${rootURL}/../plugin/structure/help-log10RStart.html">
+                <f:textbox name="extraParams.log10RStart" value="${instance.extraParams.log10RStart}" />
+            </f:entry>
+            
+            <f:block><strong>Using prior population info (usepopinfo)</strong></f:block>
+            
+            <f:entry title="${%(int) For use when inferring whether an individual is an immigrant, or has an immigrant ancestor in the past GENSBACK generations.  eg, if GENSBACK==2, it tests for immigrant ancestry back to grandparents.}" help="${rootURL}/../plugin/structure/help-gensBank.html">
+                <f:textbox name="extraParams.gensBank" value="${instance.extraParams.gensBank}" />
+            </f:entry>
+            
+            <f:entry title="${%Prior prob that an individual is a migrant (used only when USEPOPINFO==1).  This should be small, eg 0.01 or 0.1.}" help="${rootURL}/../plugin/structure/help-migrPrior.html">
+                <f:textbox name="extraParams.migrPrior" value="${instance.extraParams.migrPrior}" />
+            </f:entry>
+            
+            <f:entry title="${%Only use individuals with POPFLAG=1 to update P. This is to enable use of a reference set of individuals for clustering additional "test" individuals.}" help="${rootURL}/../plugin/structure/help-pFromPopFlagOnly.html">
+                <f:checkbox name="extraParams.pFromPopFlagOnly" value="${instance.extraParams.pFromPopFlagOnly}" checked="${instance.extraParams.pFromPopFlagOnly}" />
+            </f:entry>
+            
+            <f:block><strong>Locprior model for using location information</strong></f:block>
+            
+            <f:entry title="${%Use POPDATA for location information}" help="${rootURL}/../plugin/structure/help-locisPop.html">
+                <f:checkbox name="extraParams.locisPop" value="${instance.extraParams.locisPop}" checked="${instance.extraParams.locisPop}" />
+            </f:entry>
+            
+            <f:entry title="${%Initial value for r, the location prior}" help="${rootURL}/../plugin/structure/help-locPriorInit.html">
+                <f:textbox name="extraParams.locPriorInit" value="${instance.extraParams.locPriorInit}" />
+            </f:entry>
+            
+            <f:entry title="${%Max allowed value for r}" help="${rootURL}/../plugin/structure/help-maxLocPrior.html">
+                <f:textbox name="extraParams.maxLocPrior" value="${instance.extraParams.maxLocPrior}" />
+            </f:entry>
+            
+            <f:block><strong>Output options</strong></f:block>
+            
+            <f:entry title="${%Print the "net nucleotide distance" to screen during the run}" help="${rootURL}/../plugin/structure/help-printNet.html">
+                <f:checkbox name="extraParams.printNet" value="${instance.extraParams.printNet}" checked="${instance.extraParams.printNet}" />
+            </f:entry>
+            
+            <f:entry title="${%Print current value(s) of lambda to screen}" help="${rootURL}/../plugin/structure/help-printLambda.html">
+                <f:checkbox name="extraParams.printLambda" value="${instance.extraParams.printLambda}" checked="${instance.extraParams.printLambda}" />
+            </f:entry>
+            
+            <f:entry title="${%Print summary of current population membership to screen}" help="${rootURL}/../plugin/structure/help-printQSum.html">
+                <f:checkbox name="extraParams.printQSum" value="${instance.extraParams.printQSum}" checked="${instance.extraParams.printQSum}" />
+            </f:entry>
+            
+            <f:entry title="${%Whether or not to print site by site results. (Linkage model only) This is a large file!}" help="${rootURL}/../plugin/structure/help-siteByte.html">
+                <f:checkbox name="extraParams.siteByte" value="${instance.extraParams.siteByte}" checked="${instance.extraParams.siteByte}" />
+            </f:entry>
+            
+            <f:entry title="${%Q-hat printed to a separate file.  Turn this on before using STRAT.}" help="${rootURL}/../plugin/structure/help-printQHat.html">
+                <f:checkbox name="extraParams.printQHat" value="${instance.extraParams.printQHat}" checked="${instance.extraParams.printQHat}" />
+            </f:entry>
+            
+            <f:entry title="${%Frequency of printing update on the screen. Set automatically if this is 0.}" help="${rootURL}/../plugin/structure/help-updateFreq.html">
+                <f:textbox name="extraParams.updateFreq" value="${instance.extraParams.updateFreq}" />
+            </f:entry>
+            
+            <f:entry title="${%Print current likelihood to screen every rep}" help="${rootURL}/../plugin/structure/help-printLikes.html">
+                <f:checkbox name="extraParams.printLikes" value="${instance.extraParams.printLikes}" checked="${instance.extraParams.printLikes}" />
+            </f:entry>
+            
+            <f:entry title="${%Number of saves to file during run}" help="${rootURL}/../plugin/structure/help-intermedSave.html">
+                <f:textbox name="extraParams.intermedSave" value="${instance.extraParams.intermedSave}" />
+            </f:entry>
+            
+            <f:entry title="${%Print some of data file to screen to check that the data entry is correct.}" help="${rootURL}/../plugin/structure/help-echoData.html">
+                <f:checkbox name="extraParams.echoData" value="${instance.extraParams.echoData}" checked="${instance.extraParams.echoData}" />
+            </f:entry>
+            
+            <f:block><strong>Next 3 are for collecting distribution of Q</strong></f:block>
+            
+            <f:entry title="${%Collect data about the distribution of ancestry coefficients (Q) for each individual}" help="${rootURL}/../plugin/structure/help-ancestDist.html">
+                <f:checkbox name="extraParams.ancestDist" value="${instance.extraParams.ancestDist}" checked="${instance.extraParams.ancestDist}" />
+            </f:entry>
+            
+            <f:entry title="${%The distribution of Q values is stored as a histogram with this number of boxes.}" help="${rootURL}/../plugin/structure/help-numBoxes.html">
+                <f:textbox name="extraParams.numBoxes" value="${instance.extraParams.numBoxes}" />
+            </f:entry>
+            
+            <f:entry title="${%The size of the displayed probability interval on Q (values between 0.0--1.0)}" help="${rootURL}/../plugin/structure/help-ancestPint.html">
+                <f:textbox name="extraParams.ancestPint" value="${instance.extraParams.ancestPint}" />
+            </f:entry>
+            
+            <f:block><strong>Miscellaneous</strong></f:block>
+            
+            <f:entry title="${%Estimate the probability of the Data under the model.  This is used when choosing the best number of subpopulations.}" help="${rootURL}/../plugin/structure/help-computerProb.html">
+                <f:checkbox name="extraParams.computerProb" value="${instance.extraParams.computerProb}" checked="${instance.extraParams.computerProb}" />
+            </f:entry>
+            
+            <f:entry title="${%[only relevant for linkage model]: Initial period of burnin with admixture model (see Readme)}" help="${rootURL}/../plugin/structure/help-admBurnIn.html">
+                <f:textbox name="extraParams.admBurnIn" value="${instance.extraParams.admBurnIn}" />
+            </f:entry>
+            
+            <f:entry title="${%SD of proposal for updating alpha}" help="${rootURL}/../plugin/structure/help-alphaPropSd.html">
+                <f:textbox name="extraParams.alphaPropSd" value="${instance.extraParams.alphaPropSd}" />
+            </f:entry>
+            
+            <f:entry title="${%Use given populations as the initial condition for population origins. (Need POPDATA==1). It is assumed that the PopData in the input file are between 1 and k where k<=MAXPOPS.}" help="${rootURL}/../plugin/structure/help-startAtPopInfo.html">
+                <f:checkbox name="extraParams.startAtPopInfo" value="${instance.extraParams.startAtPopInfo}" checked="${instance.extraParams.startAtPopInfo}" />
+            </f:entry>
+            
+            <f:entry title="${%Use new random seed for each run}" help="${rootURL}/../plugin/structure/help-randomize.html">
+                <f:checkbox name="extraParams.randomize" value="${instance.extraParams.randomize}" checked="${instance.extraParams.randomize}" />
+            </f:entry>
+            
+            <f:entry title="${%Seed value for random number generator (must set RANDOMIZE=0)}" help="${rootURL}/../plugin/structure/help-seed.html">
+                <f:textbox name="extraParams.seed" value="${instance.extraParams.seed}" />
+            </f:entry>
+            
+            <f:entry title="${%Frequency of using Metropolis step to update Q under admixture model (ie use the metr. move every i steps).  If this is set to 0, it is never used. (Proposal for each q^(i) sampled from prior.  The goal is to improve mixing for small alpha.)}" help="${rootURL}/../plugin/structure/help-metroFreq.html">
+                <f:textbox name="extraParams.metroFreq" value="${instance.extraParams.metroFreq}" />
+            </f:entry>
+            
+            <f:entry title="${%Report hit rate if using METROFREQ}" help="${rootURL}/../plugin/structure/help-reportHitRate.html">
+                <f:checkbox name="extraParams.reportHitRate" value="${instance.extraParams.reportHitRate}" checked="${instance.extraParams.reportHitRate}" />
+            </f:entry>
+
+        </f:section>
     </f:advanced>
 
 </j:jelly>
