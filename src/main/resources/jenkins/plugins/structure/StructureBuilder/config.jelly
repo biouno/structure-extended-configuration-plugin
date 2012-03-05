@@ -10,18 +10,93 @@
 		</select>
 	</f:entry>
 	
-	<f:entry title="${%Data file}">
-        <f:textbox name="Structure.inputFile" value="${instance.inputFile}" 
-              checkUrl="'${rootURL}/builder/StructureBuilder/required?value='+escape(this.value)" />
-    </f:entry>
-    
     <f:section title="${%Main params}" name="Structure.mainParams">
-        <f:entry title="${%Max populations}" help="${rootURL}/../plugin/structure/help-maxPops.html">
+        
+        <f:block><strong>Basic parameters</strong></f:block>
+        
+        <f:entry title="${%Number of populations assumed}" help="${rootURL}/../plugin/structure/help-maxPops.html">
             <f:textbox name="mainParams.maxPops" value="${instance.mainParams.maxPops}" />
         </f:entry>
-        <f:entry title="${%Number of repetitions}" help="${rootURL}/../plugin/structure/help-numReps.html">
+        <f:entry title="${%Length of burn-in period}" help="${rootURL}/../plugin/structure/help-burnIn.html">
+            <f:textbox name="mainParams.burnIn" value="${instance.mainParams.burnIn}" />
+        </f:entry>
+        <f:entry title="${%Number of MCMC repetitions after burn-in}" help="${rootURL}/../plugin/structure/help-numReps.html">
             <f:textbox name="mainParams.numReps" value="${instance.mainParams.numReps}" />
         </f:entry>
+        
+        <f:block><strong>Input / output files</strong></f:block>
+        
+        <f:entry title="${%Input file location}" help="${rootURL}/../plugin/structure/help-inFile.html">
+            <f:textbox name="mainParams.inFile" value="${instance.mainParams.inFile}" checkUrl="'${rootURL}/builder/StructureBuilder/required?value='+escape(this.value)" />
+        </f:entry>
+        <f:entry title="${%Output file location}" help="${rootURL}/../plugin/structure/help-outFile.html">
+            <f:textbox name="mainParams.outFile" value="${instance.mainParams.outFile}" checkUrl="'${rootURL}/builder/StructureBuilder/required?value='+escape(this.value)" />
+        </f:entry>
+        
+        <f:block><strong>Data file format</strong></f:block>
+        
+        <f:entry title="${%Number of diploid individuals in data file}" help="${rootURL}/../plugin/structure/help-numInds.html">
+            <f:textbox name="mainParams.numInds" value="${instance.mainParams.numInds}" />
+        </f:entry>
+        <f:entry title="${%Number of loci in data file}" help="${rootURL}/../plugin/structure/help-numLoci.html">
+            <f:textbox name="mainParams.numLoci" value="${instance.mainParams.numLoci}" />
+        </f:entry>
+        <f:entry title="${%Ploidy of data}" help="${rootURL}/../plugin/structure/help-ploidy.html">
+            <f:textbox name="mainParams.ploidy" value="${instance.mainParams.ploidy}" />
+        </f:entry>
+        <f:entry title="${%Value giving to missing genotype data}" help="${rootURL}/../plugin/structure/help-missing.html">
+            <f:textbox name="mainParams.missing" value="${instance.mainParams.missing}" />
+        </f:entry>
+        <f:entry title="${%Store data for individuals in a single line}" help="${rootURL}/../plugin/structure/help-oneRowPerInd.html">
+            <f:checkbox name="mainParams.oneRowPerInd" value="${instance.mainParams.oneRowPerInd}" checked="${instance.mainParams.oneRowPerInd}" />
+        </f:entry>
+        <f:entry title="${%Use individual labels}" help="${rootURL}/../plugin/structure/help-label.html">
+            <f:checkbox name="mainParams.label" value="${instance.mainParams.label}" checked="${instance.mainParams.label}" />
+        </f:entry>
+        <f:entry title="${%Use population identifier}" help="${rootURL}/../plugin/structure/help-popData.html">
+            <f:checkbox name="mainParams.popData" value="${instance.mainParams.popData}" checked="${instance.mainParams.popData}" />
+        </f:entry>
+        <f:entry title="${%Flag to use population information}" help="${rootURL}/../plugin/structure/help-popFlag.html">
+            <f:checkbox name="mainParams.popFlag" value="${instance.mainParams.popFlag}" checked="${instance.mainParams.popFlag}" />
+        </f:entry>
+        <f:entry title="${%Use location identifier}" help="${rootURL}/../plugin/structure/help-locData.html">
+            <f:checkbox name="mainParams.locData" value="${instance.mainParams.locData}" checked="${instance.mainParams.locData}" />
+        </f:entry>
+        <f:entry title="${%Use phenotype information}" help="${rootURL}/../plugin/structure/help-phenotype.html">
+            <f:checkbox name="mainParams.phenotype" value="${instance.mainParams.phenotype}" checked="${instance.mainParams.phenotype}" />
+        </f:entry>
+        <f:entry title="${%Extra columns before genotype data start}" help="${rootURL}/../plugin/structure/help-extraCols.html">
+            <f:textbox name="mainParams.extraCols" value="${instance.mainParams.extraCols}" />
+        </f:entry>
+        <f:entry title="${%Use marker names}" help="${rootURL}/../plugin/structure/help-markerNames.html">
+            <f:checkbox name="mainParams.markerNames" value="${instance.mainParams.markerNames}" checked="${instance.mainParams.markerNames}" />
+        </f:entry>
+        <f:entry title="${%Use recessive alleles}" help="${rootURL}/../plugin/structure/help-recessiveAlleles.html">
+            <f:checkbox name="mainParams.recessiveAlleles" value="${instance.mainParams.recessiveAlleles}" checked="${instance.mainParams.recessiveAlleles}" />
+        </f:entry>
+        <f:entry title="${%Row of map distances between loci}" help="${rootURL}/../plugin/structure/help-mapDistances.html">
+            <f:checkbox name="mainParams.mapDistances" value="${instance.mainParams.mapDistances}" checked="${instance.mainParams.mapDistances}" />
+        </f:entry>
+        
+        <f:block><strong>Advanced data file options</strong></f:block>
+        
+        <f:entry title="${%Data are in correct phase}" help="${rootURL}/../plugin/structure/help-phased.html">
+            <f:checkbox name="mainParams.phased" value="${instance.mainParams.phased}" checked="${instance.mainParams.phased}" />
+        </f:entry>
+        <f:entry title="${%Use phase for linkage model}" help="${rootURL}/../plugin/structure/help-phaseInfo.html">
+            <f:checkbox name="mainParams.phaseInfo" value="${instance.mainParams.phaseInfo}" checked="${instance.mainParams.phaseInfo}" />
+        </f:entry>
+        <f:entry title="${%Phase info follows a Markov model}" help="${rootURL}/../plugin/structure/help-markovPhase.html">
+            <f:checkbox name="mainParams.markovPhase" value="${instance.mainParams.markovPhase}" checked="${instance.mainParams.markovPhase}" />
+        </f:entry>
+        <f:entry title="${%Not ambiguous}" help="${rootURL}/../plugin/structure/help-notAmbiguous.html">
+            <f:textbox name="mainParams.notAmbiguous" value="${instance.mainParams.notAmbiguous}" />
+        </f:entry>
+        
+    </f:section>
+    
+    <f:section title="${%Extra params}" name="Structure.extraParams">
+    
     </f:section>
     
     <f:advanced>

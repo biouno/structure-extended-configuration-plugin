@@ -27,7 +27,6 @@ public class StructureBuilder extends Builder {
 	public static final StructureBuilderDescriptor DESCRIPTOR = new StructureBuilderDescriptor();
 
 	private String structureInstallationName;
-	private String inputFile;
 	
 	@CopyOnWrite
 	private final MainParams mainParams;
@@ -41,7 +40,6 @@ public class StructureBuilder extends Builder {
     		MainParams mainParams, 
     		ExtraParams extraParams) {
     	this.structureInstallationName = structureInstallationName;
-    	this.inputFile = inputFile;
         this.mainParams = mainParams;
         this.extraParams = extraParams;
     }
@@ -67,13 +65,6 @@ public class StructureBuilder extends Builder {
 		return structureInstallationName;
 	}
 	
-	/**
-	 * @return the inputFile
-	 */
-	public String getInputFile() {
-		return inputFile;
-	}
-
     @Override
     public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener) 
     		throws AbortException, InterruptedException, IOException {
@@ -84,7 +75,7 @@ public class StructureBuilder extends Builder {
         	throw new AbortException(Messages.StructureBuilder_InvalidStructureInstallation());
         }
         
-        if(StringUtils.isBlank(this.inputFile)) {
+        if(StringUtils.isBlank(this.getMainParams().getInFile())) {
         	throw new AbortException(Messages.StructureBuilder_InvalidStructureInstallation());
         }
         
