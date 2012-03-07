@@ -33,31 +33,41 @@ import org.apache.commons.lang.StringUtils;
  */
 public class Util {
 
-	private Util() {}
-	
+	private static final String TRUE = "true";
+	private static final String FALSE = "false";
+	private static final String TRUE_VALUE = "1";
+	private static final String FALSE_VALUE = "0";
+
 	private static final String SPACE = " ";
+	private static final String NEWLINE = System.getProperty("line.separator");
+	
+	// Hide as tis' an utility class
+	private Util() {}
 	
 	public static void addOption(StringBuilder sb, String key, String value) {
 		if(StringUtils.isNotBlank(value)) {
-			sb.append(key + SPACE + value);
+			sb.append("#define" + SPACE + key + SPACE + value + NEWLINE);
 		}
 	}
 	
-	public static void addOption(StringBuilder sb, String key, Number value) {
-		if(value != null) {
-			sb.append(key + SPACE + value);
+	public static void addBooleanOption(StringBuilder sb, String key, String value) {
+		if(StringUtils.isNotBlank(value)) {
+			final String booleanValue = getBooleanValue(value);
+			if(StringUtils.isNotBlank(booleanValue)) {
+				sb.append("#define" + SPACE + key + SPACE + booleanValue + NEWLINE);
+			}
 		}
 	}
 	
-	public static void addOption(StringBuilder sb, String key, Boolean value) {
-		final String booleanValue = getBooleanValue(value);
-		if(booleanValue != null) {
-			sb.append(key + SPACE + booleanValue);
+	public static String getBooleanValue(String value) {
+		if(StringUtils.isNotBlank(value)) {
+			if(value.equals(TRUE)) {
+				return TRUE_VALUE;
+			} else if(value.equals(FALSE)) {
+				return FALSE_VALUE;
+			}
 		}
-	}
-
-	public static String getBooleanValue(Boolean value) {
-		return value != null ? value == true ? "1" : "0" : null;
+		return null;
 	}
 	
 }

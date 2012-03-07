@@ -62,35 +62,35 @@ public class MainParams implements Serializable {
 	private static final String MAXPOPS = "MAXPOPS";
 
 	// Basic Program Parameters
-	private final Long maxPops; // (int) number of populations assumed
-	private final Long burnIn; // (int) length of burnin period
-	private final Long numReps; // (int) number of MCMC reps after burnin
+	private final String maxPops; // (int) number of populations assumed
+	private final String burnIn; // (int) length of burnin period
+	private final String numReps; // (int) number of MCMC reps after burnin
 
 	// Input/Output files
 	private final String inFile; // (str) name of input data file
 	private final String outFile; //(str) name of output data file
 
 	// Data file format
-	private final Long numInds; // (int) number of diploid individuals in data file
-	private final Long numLoci; // (int) number of loci in data file
-	private final Integer ploidy; // (int) ploidy of data
-	private final Integer missing; // (int) value given to missing genotype data
-	private final Boolean oneRowPerInd; // (B) store data for individuals in a single line
-	private final Boolean label; // (B) Input file contains individual labels
-	private final Boolean popData; // (B) Input file contains a population identifier
-	private final Boolean popFlag; // (B) Input file contains a flag which says whether to use popinfo when USEPOPINFO==1
-	private final Boolean locData; // (B) Input file contains a location identifier
-	private final Boolean phenotype; // (B) Input file contains phenotype information
-	private final Integer extraCols; // (int) Number of additional columns of data before the genotype data start.
-	private final Boolean markerNames; // (B) data file contains row of marker names
-	private final Boolean recessiveAlleles; // (B) data file contains dominant markers (eg AFLPs) and a row to indicate which alleles are recessive
-	private final Boolean mapDistances; // (B) data file contains row of map distances between loci
+	private final String numInds; // (int) number of diploid individuals in data file
+	private final String numLoci; // (int) number of loci in data file
+	private final String ploidy; // (int) ploidy of data
+	private final String missing; // (int) value given to missing genotype data
+	private final String oneRowPerInd; // (B) store data for individuals in a single line
+	private final String label; // (B) Input file contains individual labels
+	private final String popData; // (B) Input file contains a population identifier
+	private final String popFlag; // (B) Input file contains a flag which says whether to use popinfo when USEPOPINFO==1
+	private final String locData; // (B) Input file contains a location identifier
+	private final String phenotype; // (B) Input file contains phenotype information
+	private final String extraCols; // (int) Number of additional columns of data before the genotype data start.
+	private final String markerNames; // (B) data file contains row of marker names
+	private final String recessiveAlleles; // (B) data file contains dominant markers (eg AFLPs) and a row to indicate which alleles are recessive
+	private final String mapDistances; // (B) data file contains row of map distances between loci
 
 	// Advanced data file options
-	private final Boolean phased; // (B) Data are in correct phase (relevant for linkage model only)
-	private final Boolean phaseInfo; // (B) the data for each individual contains a line indicating phase (linkage model)
-	private final Boolean markovPhase; // (B) the phase info follows a Markov model.
-	private final Integer notAmbiguous; // (int) for use in some analyses of polyploid data
+	private final String phased; // (B) Data are in correct phase (relevant for linkage model only)
+	private final String phaseInfo; // (B) the data for each individual contains a line indicating phase (linkage model)
+	private final String markovPhase; // (B) the phase info follows a Markov model.
+	private final String notAmbiguous; // (int) for use in some analyses of polyploid data
 
 	/**
 	 * @param maxPops
@@ -118,29 +118,29 @@ public class MainParams implements Serializable {
 	 * @param notAmbiguous
 	 */
 	@DataBoundConstructor
-	public MainParams(Long maxPops, 
-			Long burnIn,
-			Long numReps, 
+	public MainParams(String maxPops, 
+			String burnIn, 
+			String numReps, 
 			String inFile,
 			String outFile, 
-			Long numInds, 
-			Long numLoci, 
-			Integer ploidy,
-			Integer missing, 
-			Boolean oneRowPerInd, 
-			Boolean label,
-			Boolean popData, 
-			Boolean popFlag, 
-			Boolean locData,
-			Boolean phenotype, 
-			Integer extraCols, 
-			Boolean markerNames,
-			Boolean recessiveAlleles, 
-			Boolean mapDistances, 
-			Boolean phased,
-			Boolean phaseInfo, 
-			Boolean markovPhase, 
-			Integer notAmbiguous) {
+			String numInds, 
+			String numLoci, 
+			String ploidy,
+			String missing, 
+			String oneRowPerInd, 
+			String label,
+			String popData, 
+			String popFlag, 
+			String locData,
+			String phenotype, 
+			String extraCols, 
+			String markerNames,
+			String recessiveAlleles, 
+			String mapDistances, 
+			String phased,
+			String phaseInfo, 
+			String markovPhase, 
+			String notAmbiguous) {
 		super();
 		this.maxPops = maxPops;
 		this.burnIn = burnIn;
@@ -170,21 +170,21 @@ public class MainParams implements Serializable {
 	/**
 	 * @return the maxPops
 	 */
-	public Long getMaxPops() {
+	public String getMaxPops() {
 		return maxPops;
 	}
 
 	/**
 	 * @return the burnIn
 	 */
-	public Long getBurnIn() {
+	public String getBurnIn() {
 		return burnIn;
 	}
 
 	/**
 	 * @return the numReps
 	 */
-	public Long getNumReps() {
+	public String getNumReps() {
 		return numReps;
 	}
 
@@ -205,126 +205,126 @@ public class MainParams implements Serializable {
 	/**
 	 * @return the numInds
 	 */
-	public Long getNumInds() {
+	public String getNumInds() {
 		return numInds;
 	}
 
 	/**
 	 * @return the numLoci
 	 */
-	public Long getNumLoci() {
+	public String getNumLoci() {
 		return numLoci;
 	}
 
 	/**
 	 * @return the ploidy
 	 */
-	public Integer getPloidy() {
+	public String getPloidy() {
 		return ploidy;
 	}
 
 	/**
 	 * @return the missing
 	 */
-	public Integer getMissing() {
+	public String getMissing() {
 		return missing;
 	}
 
 	/**
 	 * @return the oneRowPerInd
 	 */
-	public Boolean getOneRowPerInd() {
+	public String getOneRowPerInd() {
 		return oneRowPerInd;
 	}
 
 	/**
 	 * @return the label
 	 */
-	public Boolean getLabel() {
+	public String getLabel() {
 		return label;
 	}
 
 	/**
 	 * @return the popData
 	 */
-	public Boolean getPopData() {
+	public String getPopData() {
 		return popData;
 	}
 
 	/**
 	 * @return the popFlag
 	 */
-	public Boolean getPopFlag() {
+	public String getPopFlag() {
 		return popFlag;
 	}
 
 	/**
 	 * @return the locData
 	 */
-	public Boolean getLocData() {
+	public String getLocData() {
 		return locData;
 	}
 
 	/**
 	 * @return the phenotype
 	 */
-	public Boolean getPhenotype() {
+	public String getPhenotype() {
 		return phenotype;
 	}
 
 	/**
 	 * @return the extraCols
 	 */
-	public Integer getExtraCols() {
+	public String getExtraCols() {
 		return extraCols;
 	}
 
 	/**
 	 * @return the markerNames
 	 */
-	public Boolean getMarkerNames() {
+	public String getMarkerNames() {
 		return markerNames;
 	}
 
 	/**
 	 * @return the recessiveAlleles
 	 */
-	public Boolean getRecessiveAlleles() {
+	public String getRecessiveAlleles() {
 		return recessiveAlleles;
 	}
 
 	/**
 	 * @return the mapDistances
 	 */
-	public Boolean getMapDistances() {
+	public String getMapDistances() {
 		return mapDistances;
 	}
 
 	/**
 	 * @return the phased
 	 */
-	public Boolean getPhased() {
+	public String getPhased() {
 		return phased;
 	}
 
 	/**
 	 * @return the phaseInfo
 	 */
-	public Boolean getPhaseInfo() {
+	public String getPhaseInfo() {
 		return phaseInfo;
 	}
 
 	/**
 	 * @return the markovPhase
 	 */
-	public Boolean getMarkovPhase() {
+	public String getMarkovPhase() {
 		return markovPhase;
 	}
 
 	/**
 	 * @return the notAmbiguous
 	 */
-	public Integer getNotAmbiguous() {
+	public String getNotAmbiguous() {
 		return notAmbiguous;
 	}
 	
@@ -343,19 +343,19 @@ public class MainParams implements Serializable {
 		Util.addOption(sb, NUMLOCI, this.getNumLoci());
 		Util.addOption(sb, PLOIDY, this.getPloidy());
 		Util.addOption(sb, MISSING, this.getMissing());
-		Util.addOption(sb, ONEROWPERIND, this.getOneRowPerInd());
-		Util.addOption(sb, LABEL, this.getLabel());
-		Util.addOption(sb, POPDATA, this.getPopData());
-		Util.addOption(sb, POPFLAG, this.getPopFlag());
-		Util.addOption(sb, LOCDATA, this.getLocData());
-		Util.addOption(sb, PHENOTYPE, this.getPhenotype());
+		Util.addBooleanOption(sb, ONEROWPERIND, this.getOneRowPerInd());
+		Util.addBooleanOption(sb, LABEL, this.getLabel());
+		Util.addBooleanOption(sb, POPDATA, this.getPopData());
+		Util.addBooleanOption(sb, POPFLAG, this.getPopFlag());
+		Util.addBooleanOption(sb, LOCDATA, this.getLocData());
+		Util.addBooleanOption(sb, PHENOTYPE, this.getPhenotype());
 		Util.addOption(sb, EXTRACOLS, this.getExtraCols());
-		Util.addOption(sb, MARKERNAMES, this.getMarkerNames());
-		Util.addOption(sb, RECESSIVEALLELES, this.getRecessiveAlleles());
-		Util.addOption(sb, MAPDISTANCES, this.getMapDistances());
-		Util.addOption(sb, PHASED, this.getPhased());
-		Util.addOption(sb, PHASEINFO, this.getPhaseInfo());
-		Util.addOption(sb, MARKOVPHASE, this.getMarkovPhase());
+		Util.addBooleanOption(sb, MARKERNAMES, this.getMarkerNames());
+		Util.addBooleanOption(sb, RECESSIVEALLELES, this.getRecessiveAlleles());
+		Util.addBooleanOption(sb, MAPDISTANCES, this.getMapDistances());
+		Util.addBooleanOption(sb, PHASED, this.getPhased());
+		Util.addBooleanOption(sb, PHASEINFO, this.getPhaseInfo());
+		Util.addBooleanOption(sb, MARKOVPHASE, this.getMarkovPhase());
 		Util.addOption(sb, NOTAMBIGUOUS, this.getNotAmbiguous());
 		return sb.toString();
 	}

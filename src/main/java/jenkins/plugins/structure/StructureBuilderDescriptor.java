@@ -23,11 +23,11 @@
  */
 package jenkins.plugins.structure;
 
-import jenkins.plugins.structure.util.Messages;
 import hudson.CopyOnWrite;
 import hudson.model.Descriptor;
 import hudson.tasks.Builder;
 import hudson.util.FormValidation;
+import jenkins.plugins.structure.util.Messages;
 import net.sf.json.JSONObject;
 
 import org.apache.commons.lang.StringUtils;
@@ -95,6 +95,30 @@ public class StructureBuilderDescriptor extends Descriptor<Builder> {
 		FormValidation returnValue = FormValidation.ok();
 		if(StringUtils.isBlank(value)) {
 			returnValue = FormValidation.error(Messages.StructureDescriptor_Required());
+		}
+		return returnValue;
+	}
+	
+	public FormValidation doLongRequired(@QueryParameter String value) {
+		FormValidation returnValue = FormValidation.ok();
+		if(StringUtils.isNotBlank(value)) {
+			try {
+				Long.parseLong(value);
+			} catch ( NumberFormatException nfe ) {
+				returnValue = FormValidation.error("This value must be an integer");
+			}
+		}
+		return returnValue;
+	}
+	
+	public FormValidation doDoubleRequired(@QueryParameter String value) {
+		FormValidation returnValue = FormValidation.ok();
+		if(StringUtils.isNotBlank(value)) {
+			try {
+				Double.parseDouble(value);
+			} catch ( NumberFormatException nfe ) {
+				returnValue = FormValidation.error("This value must be an float");
+			}
 		}
 		return returnValue;
 	}
