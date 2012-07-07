@@ -10,11 +10,11 @@
 
     <inceptionYear>2012</inceptionYear>
 
-    <artifactId>structure</artifactId>
-    <name>BioUno Structure Plug-in</name>
+    <artifactId>structure-extendend-configuration</artifactId>
+    <name>Structure Extended Configuration Plug-in</name>
     <version>1.0-SNAPSHOT</version>
 	<packaging>hpi</packaging>
-	<description>This plug-in integrates Jenkins to Structure</description>
+	<description>This plug-in integrates Jenkins to Structure with an extended configuration.</description>
 
 	<developers>
 		<developer>
