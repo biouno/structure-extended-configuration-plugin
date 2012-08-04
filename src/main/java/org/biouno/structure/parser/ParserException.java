@@ -21,53 +21,47 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package jenkins.plugins.structure;
-
-import org.apache.commons.lang.StringUtils;
+package org.biouno.structure.parser;
 
 /**
- * Utility class for Structure plug-in.
- * 
+ * A parser exception.
  * @author Bruno P. Kinoshita - http://www.kinoshita.eti.br
  * @since 0.1
  */
-public class Util {
+public class ParserException extends Exception {
 
-	private static final String TRUE = "true";
-	private static final String FALSE = "false";
-	private static final String TRUE_VALUE = "1";
-	private static final String FALSE_VALUE = "0";
+	private static final long serialVersionUID = -8121296936258799110L;
 
-	private static final String SPACE = " ";
-	private static final String NEWLINE = System.getProperty("line.separator");
-	
-	// Hide as tis' an utility class
-	private Util() {}
-	
-	public static void addOption(StringBuilder sb, String key, String value) {
-		if(StringUtils.isNotBlank(value)) {
-			sb.append("#define" + SPACE + key + SPACE + value + NEWLINE);
-		}
+	/**
+	 * 
+	 */
+	public ParserException() {
+		// Auto-generated constructor stub
 	}
-	
-	public static void addBooleanOption(StringBuilder sb, String key, String value) {
-		if(StringUtils.isNotBlank(value)) {
-			final String booleanValue = getBooleanValue(value);
-			if(StringUtils.isNotBlank(booleanValue)) {
-				sb.append("#define" + SPACE + key + SPACE + booleanValue + NEWLINE);
-			}
-		}
+
+	/**
+	 * @param message
+	 */
+	public ParserException(String message) {
+		super(message);
+		// Auto-generated constructor stub
 	}
-	
-	public static String getBooleanValue(String value) {
-		if(StringUtils.isNotBlank(value)) {
-			if(value.equals(TRUE)) {
-				return TRUE_VALUE;
-			} else if(value.equals(FALSE)) {
-				return FALSE_VALUE;
-			}
-		}
-		return null;
+
+	/**
+	 * @param cause
+	 */
+	public ParserException(Throwable cause) {
+		super(cause);
+		// Auto-generated constructor stub
 	}
-	
+
+	/**
+	 * @param message
+	 * @param cause
+	 */
+	public ParserException(String message, Throwable cause) {
+		super(message, cause);
+		// Auto-generated constructor stub
+	}
+
 }

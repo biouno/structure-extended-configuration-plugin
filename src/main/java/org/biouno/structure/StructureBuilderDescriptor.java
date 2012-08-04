@@ -21,16 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package jenkins.plugins.structure;
+package org.biouno.structure;
 
 import hudson.CopyOnWrite;
 import hudson.model.Descriptor;
 import hudson.tasks.Builder;
 import hudson.util.FormValidation;
-import jenkins.plugins.structure.util.Messages;
 import net.sf.json.JSONObject;
 
 import org.apache.commons.lang.StringUtils;
+import org.biouno.structure.util.Messages;
 import org.kohsuke.stapler.QueryParameter;
 import org.kohsuke.stapler.StaplerRequest;
 
